@@ -44,6 +44,7 @@ var argv = nomnom
     .option('silent', { flag: true, 'default': false, help: 'Turn all output off.' })
 
     .option('simulate', { flag: true, 'default': false, help: 'Execute but not write any file.' })
+    .option('private', { flag: true, 'default': false, help: 'Include private fields in the results.' })
 
     // markdown settings
     .option('markdown', { flag: true, 'default': true, help: 'Turn off markdown parser.' })
@@ -90,7 +91,8 @@ var options = {
     workers       : transformToObject(argv['parse-workers']),
     silent        : argv['silent'],
     simulate      : argv['simulate'],
-    markdown      : argv['markdown']
+    markdown      : argv['markdown'],
+    apiprivate    : argv['private']
 };
 
 if (apidocSwagger.createApidocSwagger(options) === false) {
