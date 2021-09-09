@@ -45,6 +45,7 @@ var argv = nomnom
 
     .option('simulate', { flag: true, 'default': false, help: 'Execute but not write any file.' })
     .option('private', { flag: true, 'default': false, help: 'Include private fields in the results.' })
+    .option('bracket-format', { flag: true, 'default': false, help: 'Use bracket format for API params. OBS: Incomplete' })
 
     // markdown settings
     .option('markdown', { flag: true, 'default': true, help: 'Turn off markdown parser.' })
@@ -92,7 +93,8 @@ var options = {
     silent        : argv['silent'],
     simulate      : argv['simulate'],
     markdown      : argv['markdown'],
-    apiprivate    : argv['private']
+    apiprivate    : argv['private'],
+    bracketFormat    : argv['bracket-format'],
 };
 
 if (apidocSwagger.createApidocSwagger(options) === false) {
